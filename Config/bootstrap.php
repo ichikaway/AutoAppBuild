@@ -1,8 +1,16 @@
 <?php
+/*
+ * AutoAppBuild Plugin for CakePHP2.x
+ *
+ * Author: Yasushi Ichikawa (Twitter: @ichikaway)
+ * MIT License
+ *
+ */
+
+
 
 /* ------ Execute --------*/
 AutoAppBuild::build();
-
 
 
 /**
@@ -46,15 +54,38 @@ class AutoAppBuild {
 /**
  * execute App::build 
  **/
-	public function build() {
+	public static function build() {
 		self::setAppPath();
 
 		foreach(self::$list as $target => $path) {
-			$ignoreList = $buildPath = array();
+			try{
+				$buildPath = self::createBuildPath($target, $path);
+				if(!empty($buildPath)) {
+					App::build(array(
+							$target => $buildPath,
+					));
+				}
+			} catch (Exception $e){
+				//nothing to do
+			}
+		}
+	}
 
+/**
+ * createBuildPath
+ * @param $target string
+ * @param $path string
+ * @return array : directory paths
+ **/
+	private static function createBuildPath($target = null, $path = null) {
+			if(empty($target) || empty($path)) {
+				throw new Exception('target or path is null');
+			}
+
+			$ignoreList = $buildPath = array();
 			$dirs = glob($path."*", GLOB_ONLYDIR);
 			if(empty($dirs)){
-				continue;
+				throw new Exception('No directory');
 			}
 
 			//make Ingore directory list
@@ -70,13 +101,7 @@ class AutoAppBuild {
 					$buildPath[] = $fullDirPath . DS;
 				}
 			}
-
-			if(!empty($buildPath)) {
-				App::build(array(
-							$target => $buildPath,
-							));
-			}
-		}
+			return $buildPath;
 	}
 
 }
