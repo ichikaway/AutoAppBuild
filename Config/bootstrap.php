@@ -13,6 +13,8 @@
 
 /* ------ Execute --------*/
 AutoAppBuild::build();
+//AutoAppBuild::dump();
+
 
 
 /**
@@ -105,6 +107,31 @@ class AutoAppBuild {
 			}
 			return $buildPath;
 	}
+
+/**
+ * dump App::build() with all paths for Copy&Paste
+ **/
+	public static function dump() {
+		self::setAppPath();
+		$dump = array();
+		foreach(self::$list as $target => $path) {
+			try{
+				$buildPath = self::createBuildPath($target, $path);
+				if(!empty($buildPath)) {
+					pr(
+						'App::build(array(' . PHP_EOL .
+							'"' . $target .'" => array("' . join('", "', $buildPath) . '")'. PHP_EOL .
+						');'. PHP_EOL 
+					);
+				}
+			} catch (Exception $e){
+				//nothing to do
+			}
+		}
+
+	}
+
+
 
 }
 
