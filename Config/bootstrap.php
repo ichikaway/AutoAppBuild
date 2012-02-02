@@ -2,9 +2,11 @@
 /*
  * AutoAppBuild Plugin for CakePHP2.x
  *
- * Author: Yasushi Ichikawa (Twitter: @ichikaway)
- * MIT License
+ * Author: Yasushi Ichikawa http://github.com/ichikaway/ (Twitter: @ichikaway)
  *
+ * @copyright Copyright 2012, Yasushi Ichikawa http://github.com/ichikaway/
+ * @package AutoAppBuild
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
 
