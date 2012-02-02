@@ -11,7 +11,7 @@ AutoAppBuild finds sub directories in Controller/Model directory and executes Ap
 
 ## Installation
 
-* Clone/Copy the files in this directory into `app/Plugin/AppAutoBuild`
+* Clone/Copy the files in this directory into `app/Plugin/AutoAppBuild`
 * Include the bootstrap of AppAutoBuild Plugin in your `app/Config/bootstrap.php`:
    * `CakePlugin::load(array('AutoAppBuild' => array('bootstrap' => true)));`
 
