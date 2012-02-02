@@ -1,8 +1,8 @@
 # AutoAppBuild for CakePHP 2.x
 
 If you want to manage controller files with some sub-directories as follows, 
-App/Controller/user/UserController.php
-App/Controller/admin/AdminController.php
+* App/Controller/user/UserController.php
+* App/Controller/admin/AdminController.php
 it needs to set all sub-directory paths in App::Build().
 
 AutoAppBuild finds sub directories in Controller/Model directory and executes App::build(). 
