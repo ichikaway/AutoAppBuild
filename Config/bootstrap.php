@@ -12,7 +12,7 @@
 
 
 /* ------ Execute --------*/
-AutoAppBuild::build();
+//AutoAppBuild::build();
 //AutoAppBuild::dump();
 
 
@@ -58,7 +58,10 @@ class AutoAppBuild {
 /**
  * execute App::build 
  **/
-	public static function build() {
+	public static function build($plugin = null) {
+		if($plugin != null){
+			self::$appDir = CakePlugin::path($plugin);
+		}
 		self::setAppPath();
 
 		foreach(self::$list as $target => $path) {
