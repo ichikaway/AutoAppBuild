@@ -1,0 +1,17 @@
+{
+  "name": "ichikaway/autoappbuild",
+  "type": "cakephp-plugin",
+  "version": "0.1",
+  "description": "Automatic App::build Plugin for CakePHP",
+  "keywords": ["cakephp"],
+  "homepage": "https://github.com/ichikaway/AutoAppBuild",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yasushi Ichikawa "
+    }
+  ],
+  "require": {
+    "composer/installers": "*"
+  }
+}
